@@ -5,10 +5,54 @@
     <title>Exercice 6</title>
   </head>
   <body>
+      <div class="conteneur"><!--  j'ai ajouté cette div  -->
       <img src="images/image1.jpg" id="image1" />
       <img src="images/image2.jpg" id="image2" />
       <img src="images/image3.jpg" id="image3" />
       <img src="images/image4.jpg" id="image4" />
       <img src="images/image5.jpg" id="image5" />
+      </div>
   </body>
+  <script type="text/javascript">
+  // ## Exercice 6
+  // Dans le fichier HTML fourni, faire comme dans l'exercice 5 mais remettre l'image d'origine dès que la souris ne survol plus l'image.  
+  // **Bonus** Ne faire que deux fonctions JavaScript pour cet exercice.
+  
+    var monParent = document.getElementsByClassName('conteneur')[0];
+    var nbChildren = monParent.children.length;// nombre d'enfants du parent
+    var typeEvent='';
+
+    for (i=0; i<nbChildren; i++) {// ajout EventListener à chaque enfant (=image) 
+      var monChild = monParent.children[i];
+      var idMonChild=monChild.getAttribute('id');
+      var el = document.getElementById(idMonChild);
+      el.addEventListener('mouseover', function() {
+        idSelect=this.getAttribute('id');
+        typeEvent='mouseover';
+        detect(idSelect,typeEvent);//appel fonction
+        }, false);
+      el.addEventListener('mouseout', function() {
+        idSelect=this.getAttribute('id');
+        typeEvent='mouseout';
+        detect(idSelect,typeEvent);//appel fonction
+        }, false);
+
+
+    }
+//     element.addEventListener('click', function(e) { // L'argument « e » va récupérer une référence vers l'objet « Event »
+//     alert(e.type); // Ceci affiche le type de l'événement (click, mouseover, etc.)
+// });
+    function detect(idSelect,typeEvent) {
+      var myImage = document.getElementById(idSelect);
+      var initialPath='images/'
+      var filebase=initialPath+idSelect;
+      var newExtension='';
+      if (typeEvent==='mouseover') {
+        filebase+='_2.jpg';
+      } else {
+        filebase+='.jpg';
+      }
+      myImage.src=filebase;
+    }
+  </script>
 </html>

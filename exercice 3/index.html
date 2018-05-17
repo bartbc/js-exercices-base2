@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Exercice 3</title>
-</head>
-<body>
-  <form>
-    <label for="nom">Votre nom  : </label><input type="text" name="nom" value="" id="nom" />
-  </form>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice 3</title>
+    <!-- ##E xercice 3
+    Dans le fichier HTML fourni, afficher une boite de dialogue 
+    avec la valeur du champ dès que l'on appuie sur le clavier. -->
+    <script type="text/javascript">
+      function maFonction2() {
+        var maVar=document.getElementById('nom').value;
+        alert(maVar);
+      }
+    </script>
+  </head>
+  <body>
+    <form name="formul">
+      <label for="nom2">Votre nom  : </label><input  type="text" name="nom" value="test" id="nom" onkeypress="maFonction2()" />
+    </form>
+
+  </body>
 </html>

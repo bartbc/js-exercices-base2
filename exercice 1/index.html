@@ -3,8 +3,20 @@
   <head>
     <meta charset="utf-8">
     <title>Exercice 1</title>
+      <!-- ## Exercice 1
+      Dans le fichier HTML fourni, changer l'image au survol de celle-ci par la deuxième. -->
+    <script type="text/javascript">
+      function chgImage() {
+        var monImage = document.getElementById('image1');
+        monImage.src="images/image1_2.jpg";
+      }
+      function maFonction() {
+        alert('Hello !');
+      }
+    </script>
   </head>
   <body>
-      <img src="images/image1.jpg" id="image1" />
-  </body>
+      <img src="images/image1.jpg" onmouseover="chgImage()" id="image1"  />
+      <img src="images/image1.jpg" onclick="maFonction()" id="image1"  />
+</body>
 </html>

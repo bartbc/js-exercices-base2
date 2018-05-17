@@ -10,7 +10,32 @@
       <img src="images/image2.jpg" id="image2" />
       <img src="images/image3.jpg" id="image3" />
       <img src="images/image4.jpg" id="image4" />
-      <img src="images/image5.jpg" id="image5" />
+      <img src="images/image5.jpg" id="image5" /> 
     </div>
   </body>
+  <script type="text/javascript">
+    // ## Exercice 5
+    // Dans le fichier HTML fourni, faire comme dans l'exercice 1 mais avec 5 images.  
+    // **Bonus** Ne faire qu'une seule fonction JavaScript pour cet exercice.
+
+    var monParent = document.getElementsByClassName('conteneur')[0];
+    var nbChildren = monParent.children.length;// nombre d'enfants du parent
+    for (i=0; i<nbChildren; i++) {// ajout EventListener à chaque enfant (=image) 
+      var monChild = monParent.children[i];
+      var idMonChild=monChild.getAttribute('id');
+      var el = document.getElementById(idMonChild);
+      el.addEventListener('mouseover', function() {
+        idSelect=this.getAttribute('id');
+        chgImages(idSelect);
+        }, false);
+    }
+
+    function chgImages(idSelect) {
+      var myImage = document.getElementById(idSelect);
+      var initialPath='images/'
+      var newExtension='_2.jpg';
+      var filebase=initialPath+idSelect;
+      myImage.src=filebase+newExtension;
+    }
+    </script>
 </html>
